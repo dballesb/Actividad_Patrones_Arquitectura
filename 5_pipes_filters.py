@@ -20,6 +20,8 @@ def formatear(prestamos):
     return [f"{p['estudiante']}: {p['titulo']} -> ${p['multa']}"
             for p in prestamos]
 
+def ordernar_por_multa(prestamos):
+    return sorted(prestamos, key=lambda p: p["multa"], reverse=True)
 
 # ===== TUBERÍA: pasa los datos por los filtros, en orden =====
 def tuberia(datos, filtros):
@@ -28,5 +30,5 @@ def tuberia(datos, filtros):
     return datos
 
 
-for linea in tuberia(PRESTAMOS, [solo_atrasados, calcular_multa, formatear]):
+for linea in tuberia(PRESTAMOS, [solo_atrasados, calcular_multa, ordernar_por_multa, formatear]):
     print(linea)
