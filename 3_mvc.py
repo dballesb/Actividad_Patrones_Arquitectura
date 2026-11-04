@@ -21,6 +21,11 @@ class VistaLista:                      # solo muestra
             estado = "disponible" if libre else "prestado"
             print(f"  {titulo}: {estado}")
 
+class VistaResumen:
+    def mostrar(self, catalogo):
+        libres = sum(catalogo.libros.values())
+        print(f"Disponibles: {libres} de {len(catalogo.libros)}")
+
 
 # =================== CONTROLADOR ===================
 class Controlador:                     # recibe la orden del usuario
@@ -35,5 +40,6 @@ class Controlador:                     # recibe la orden del usuario
 
 catalogo = Catalogo()
 catalogo.vistas.append(VistaLista())
+catalogo.vistas.append(VistaResumen())
 controlador = Controlador(catalogo)
 controlador.orden("prestar Refactoring")
