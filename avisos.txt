@@ -1,0 +1,2 @@
+[archivo] para ana: Te prestamos 'Clean Architecture'
+[archivo] para luis: Te prestamos 'Refactoring'
